@@ -1935,10 +1935,7 @@ __webpack_require__.r(__webpack_exports__);
       timeString: 'Not yet.',
       isFika: false,
       isSoonFika: false,
-      time: {
-        start: moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.prototype,
-        end: moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.prototype
-      }
+      times: []
     };
   },
   created: function created() {
@@ -1949,9 +1946,26 @@ __webpack_require__.r(__webpack_exports__);
       var now = moment_timezone__WEBPACK_IMPORTED_MODULE_0___default()();
       this.isFika = false;
       this.isSoonFika = false;
+      var beforeTimes = this.times.filter(function (time) {
+        return now.isBetween(time.start.clone().subtract(5, 'minutes'), time.start);
+      });
+      var duringTimes = this.times.filter(function (time) {
+        return now.isBetween(time.start, time.end);
+      });
 
-      if (now.isBetween(this.time.start.clone().subtract(5, 'minutes'), this.time.start)) {
-        var diff = moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.duration(this.time.start.diff(now));
+      if (!beforeTimes.length && !duringTimes.length) {
+        this.timeString = 'Not yet.';
+        return;
+      }
+
+      if (duringTimes.length) {
+        this.timeString = 'YES';
+        this.isFika = true;
+        return;
+      }
+
+      if (beforeTimes.length) {
+        var diff = moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.duration(time.start.diff(now));
         this.isSoonFika = true;
 
         if (diff.minutes()) {
@@ -1959,11 +1973,8 @@ __webpack_require__.r(__webpack_exports__);
         } else {
           this.timeString = "No, but in ".concat(diff.seconds(), " seconds");
         }
-      } else if (now.isBetween(this.time.start, this.time.end)) {
-        this.timeString = 'YES';
-        this.isFika = true;
-      } else {
-        this.timeString = 'Not yet.';
+
+        return;
       }
 
       requestAnimationFrame(this.timer);
@@ -1974,12 +1985,13 @@ __webpack_require__.r(__webpack_exports__);
       window.axios.get(this.slug + '/times').then(function (res) {
         return res.data;
       }).then(function (data) {
-        _this.time = {
-          start: moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.tz(data[0].start, ['h:m a', 'H:m'], 'Europe/Stockholm'),
-          end: moment_timezone__WEBPACK_IMPORTED_MODULE_0___default()(data[0].end, ['h:m a', 'H:m'], 'Europe/Stockholm')
-        };
-
-        _this.timer();
+        data.forEach(function (time) {
+          _this.times.push({
+            start: moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.tz(time.start, ['h:m a', 'H:m'], 'Europe/Stockholm'),
+            end: moment_timezone__WEBPACK_IMPORTED_MODULE_0___default()(time.end, ['h:m a', 'H:m'], 'Europe/Stockholm')
+          });
+        });
+        requestAnimationFrame(_this.timer);
       });
     }
   }
