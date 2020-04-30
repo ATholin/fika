@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpIncludePathManager">
+  <component name="ChangeListManager">
+    <list default="true" id="da3a30a1-9abd-4b27-9cd4-0f0ed099a4bb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/opis/closure" />
       <path value="$PROJECT_DIR$/vendor/symfony/error-handler" />
@@ -100,10 +114,98 @@
       <path value="$PROJECT_DIR$/vendor/badcow/phrase-generator" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
-  <component name="PhpUnit">
-    <phpunit_settings>
-      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
-    </phpunit_settings>
+  <component name="ProjectId" id="1b8vpPBX1fva6crf7YCEAu3cPtl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/fika" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/fika" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da3a30a1-9abd-4b27-9cd4-0f0ed099a4bb" name="Default Changelist" comment="" />
+      <created>1588026716366</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588026716366</updated>
+      <workItem from="1588026718110" duration="912000" />
+      <workItem from="1588098381517" duration="4170000" />
+      <workItem from="1588102570147" duration="4364000" />
+      <workItem from="1588112291924" duration="6055000" />
+      <workItem from="1588161610000" duration="4009000" />
+      <workItem from="1588181616622" duration="11265000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="532" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588116323624">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="532" y="168" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1026@0.0.1920.1026" timestamp="1588116323624" />
+    <state x="627" y="202" width="655" height="632" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588164511530">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="627" y="202" width="655" height="632" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1026@0.0.1920.1026" timestamp="1588164511530" />
+    <state x="690" y="214" width="530" height="608" key="FileChooserDialogImpl" timestamp="1588027360505">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="690" y="214" width="530" height="608" key="FileChooserDialogImpl/0.0.1920.1026@0.0.1920.1026" timestamp="1588027360505" />
+    <state width="1860" height="249" key="GridCell.Tab.0.bottom" timestamp="1588102557999">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state width="1860" height="249" key="GridCell.Tab.0.bottom/0.0.1920.1026@0.0.1920.1026" timestamp="1588102557999" />
+    <state width="1860" height="249" key="GridCell.Tab.0.center" timestamp="1588102557998">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state width="1860" height="249" key="GridCell.Tab.0.center/0.0.1920.1026@0.0.1920.1026" timestamp="1588102557998" />
+    <state width="1860" height="249" key="GridCell.Tab.0.left" timestamp="1588102557997">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state width="1860" height="249" key="GridCell.Tab.0.left/0.0.1920.1026@0.0.1920.1026" timestamp="1588102557997" />
+    <state width="1860" height="249" key="GridCell.Tab.0.right" timestamp="1588102557998">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state width="1860" height="249" key="GridCell.Tab.0.right/0.0.1920.1026@0.0.1920.1026" timestamp="1588102557998" />
+    <state x="324" y="60" width="1271" height="915" key="SettingsEditor" timestamp="1588103166343">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="324" y="60" width="1271" height="915" key="SettingsEditor/0.0.1920.1026@0.0.1920.1026" timestamp="1588103166343" />
+    <state x="540" y="227" key="run.anything.popup" timestamp="1588113514727">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="540" y="227" key="run.anything.popup/0.0.1920.1026@0.0.1920.1026" timestamp="1588113514727" />
+    <state x="539" y="0" width="840" height="1024" key="search.everywhere.popup" timestamp="1588186410936">
+      <screen x="0" y="0" width="1920" height="1026" />
+    </state>
+    <state x="539" y="0" width="840" height="1024" key="search.everywhere.popup/0.0.1920.1026@0.0.1920.1026" timestamp="1588186410936" />
   </component>
 </project>
