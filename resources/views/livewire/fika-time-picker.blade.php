@@ -13,7 +13,7 @@
                 <label for="times[{{ $id }}][start]">
                     <input type="time" wire:model="times.{{$id}}.start" class="form-input text-lg bg-gray-100" name="times[{{ $id }}][start]" id="times[{{ $id }}][start]" />
                 </label>
-                <span class="mx-1"></span>
+                <span class="mx-1">to</span>
                 <label for="times[{{ $id }}][end]">
                     <input type="time" wire:model="times.{{$id}}.end" class="form-input text-lg bg-gray-100" name="times[{{ $id }}][end]" id="times[{{ $id }}][end]" />
                 </label>
