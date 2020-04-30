@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Fika;
 use App\Http\Requests\CreateFikaRequest;
 use App\Time;
-use Badcow\PhraseGenerator\PhraseGenerator;
 use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class FikaController extends Controller
@@ -47,7 +45,7 @@ class FikaController extends Controller
 
         $fika = new Fika([
             'title' => $validated['title'],
-            'slug' => Str::snake(PhraseGenerator::generate(), '-')
+            'slug' => $validated['slug']
         ]);
 
         $fika->save();

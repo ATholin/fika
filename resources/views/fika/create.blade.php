@@ -10,6 +10,22 @@
             @csrf
 
             <div class="mt-4">
+                <label for="slug">
+                    <div>
+                        <span class="text-gray-500 text-sm mr-1">/</span>
+                        <input placeholder="/attractive-gamer" value="{{ old('slug', Illuminate\Support\Str::snake(Badcow\PhraseGenerator\PhraseGenerator::generate(), '-')) }}" class="text-sm placeholder-gray-400 text-gray-700 focus:outline-none" id="slug" name="slug" />
+                    </div>
+                    @error('slug')
+                    <div class="mt-1 ml-3">
+                        <strong class="text-xs text-red-300">
+                            {{ $message }}
+                        </strong>
+                    </div>
+                    @enderror
+                </label>
+            </div>
+
+            <div class="mt-6">
                 <label for="title">
                     <p class="text-gray-500 m-3">What is the title?</p>
                     <input placeholder="Is it fika? ☕" value="{{ old('title', 'Is it fika? ☕') }}" class="form-input placeholder-gray-400 text-gray-700 text-3xl w-full bg-gray-100 shadow-inner transition-all duration-150 focus:outline-none focus:shadow-outline" id="title" name="title" />
@@ -25,7 +41,7 @@
 
             <div class="mt-6">
                 <label for="times">
-                    <p class="text-gray-700">at</p>
+                    <span class="text-gray-700">at</span>
                     <livewire:fika-time-picker />
                 </label>
             </div>
