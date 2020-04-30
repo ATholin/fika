@@ -12,7 +12,10 @@ class FikaTimePicker extends Component
         $times = old('times', $times);
 
         if (empty($times)) {
-            $times = [now('Europe/Stockholm')->format('H:i')];
+            $times = [[
+                'start' => now('Europe/Stockholm')->format('H:i'),
+                'end' => now('Europe/Stockholm')->addMinutes(30)->format('H:i')
+            ]];
         }
 
         $this->times = $times;
@@ -20,9 +23,7 @@ class FikaTimePicker extends Component
 
     public function render()
     {
-        return view('livewire.fika-time-picker', [
-            'dates' => $this->times,
-        ]);
+        return view('livewire.fika-time-picker');
 
     }
 
@@ -43,7 +44,10 @@ class FikaTimePicker extends Component
             return;
         }
 
-        $this->times[] = now('Europe/Stockholm')->format('H:i');
+        $this->times[] = [
+            'start' => now('Europe/Stockholm')->format('H:i'),
+            'end' => now('Europe/Stockholm')->addMinutes(30)->format('H:i')
+        ];
     }
 
     public function canAddMoreTimes(): bool

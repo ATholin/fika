@@ -55,8 +55,10 @@ class FikaController extends Controller
         foreach ($validated['times'] as $t) {
             $time = new Time;
 
-            $time->start = $t;
-            $time->end = Carbon::parse("$t", 'Europe/Stockholm')->addMinutes(30)->format('H:i');
+            $time->start = $t['start'];
+
+            $end = $t['end'];
+            $time->end = Carbon::parse("$end", 'Europe/Stockholm')->addMinutes(30)->format('H:i');
 
             $time->fika()->associate($fika);
             $time->save();
