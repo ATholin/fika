@@ -15,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FikaController::class, 'index'])->name('fika.create');
-Route::post('/fika', [FikaController::class, 'store'])->name('fika.store');
+Route::post('/', [FikaController::class, 'store'])->name('fika.store');
 Route::get('/{fika:slug}', [FikaController::class, 'show'])->name('fika.show');
 Route::get('/{fika:slug}/times', [FikaController::class, 'times'])->name('fika.times');
