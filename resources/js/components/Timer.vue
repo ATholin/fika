@@ -25,10 +25,7 @@
                 timeString: 'Not yet.',
                 isFika: false,
                 isSoonFika: false,
-                time: {
-                    start: moment.prototype,
-                    end: moment.prototype
-                }
+                times: []
             }
         },
         created() {
@@ -40,19 +37,34 @@
                 this.isFika = false;
                 this.isSoonFika = false;
 
-                if (now.isBetween(this.time.start.clone().subtract(5, 'minutes'), this.time.start)) {
-                    const diff = moment.duration(this.time.start.diff(now));
+                const beforeTimes = this.times.filter(time => {
+                    return now.isBetween(time.start.clone().subtract(5, 'minutes'), time.start);
+                })
+
+                const duringTimes = this.times.filter(time => {
+                    return now.isBetween(time.start, time.end);
+                })
+
+                if (!beforeTimes.length && !duringTimes.length) {
+                    this.timeString = 'Not yet.';
+                    return;
+                }
+
+                if (duringTimes.length) {
+                    this.timeString = 'YES';
+                    this.isFika = true;
+                    return;
+                }
+
+                if (beforeTimes.length) {
+                    const diff = moment.duration(time.start.diff(now));
                     this.isSoonFika = true
                     if (diff.minutes()) {
                         this.timeString = `No, but in ${diff.minutes()} minutes and ${diff.seconds()} seconds`;
                     } else {
                         this.timeString = `No, but in ${diff.seconds()} seconds`;
                     }
-                } else if (now.isBetween(this.time.start, this.time.end)) {
-                    this.timeString = 'YES';
-                    this.isFika = true;
-                } else {
-                    this.timeString = 'Not yet.';
+                    return;
                 }
 
                 requestAnimationFrame(this.timer)
@@ -62,12 +74,14 @@
                     .get(this.slug + '/times')
                     .then(res => res.data)
                     .then(data => {
-                        this.time = {
-                            start: moment.tz(data[0].start, ['h:m a', 'H:m'], 'Europe/Stockholm'),
-                            end: moment(data[0].end, ['h:m a', 'H:m'], 'Europe/Stockholm'),
-                        }
+                        data.forEach(time => {
+                            this.times.push({
+                                start: moment.tz(time.start, ['h:m a', 'H:m'], 'Europe/Stockholm'),
+                                end: moment(time.end, ['h:m a', 'H:m'], 'Europe/Stockholm'),
+                            });
+                        });
 
-                        this.timer();
+                        requestAnimationFrame(this.timer)
                     });
             }
         }
