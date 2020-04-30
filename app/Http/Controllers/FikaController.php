@@ -10,8 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
@@ -70,7 +68,7 @@ class FikaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Fika  $fika
+     * @param Fika $fika
      * @return Application|Factory|View
      */
     public function show(Fika $fika)
@@ -83,52 +81,49 @@ class FikaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Fika  $fika
-     * @return Response
+     * @return void
      */
-    public function edit(Fika $fika)
+    public function edit()
     {
-        //
+        return;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Fika  $fika
-     * @return Response
+     * @return void
      */
-    public function update(Request $request, Fika $fika)
+    public function update()
     {
-        //
+        return;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Fika  $fika
-     * @return Response
+     * @return void
      */
-    public function destroy(Fika $fika)
+    public function destroy()
     {
-        //
+        return;
     }
 
-    public function times(Request $request, Fika $fika)
+    public function times(Fika $fika)
     {
-        $times = $fika->times()->get();
+        $times = $fika->times()->get(['start', 'end']);
+        return json_encode($times);
 
-        $filterTimes = $times->filter(function (Time $time) {
-            $end = $time->getAttribute('end');
-            $date = Carbon::parse("$end", 'Europe/Stockholm');
-            return $date->isAfter(now());
-        });
-
-        return json_encode($filterTimes->map(function(Time $time) {
-            return [
-                'start' => $time->getAttribute('start'),
-                'end' => $time->getAttribute('end')
-            ];
-        }));
+//        $filterTimes = $times->filter(function (Time $time) {
+//            $end = $time->getAttribute('end');
+//            $date = Carbon::parse("$end", 'Europe/Stockholm');
+//            return $date->isAfter(now());
+//        });
+//
+//        return json_encode($filterTimes->map(function(Time $time) {
+//            return [
+//                'start' => $time->getAttribute('start'),
+//                'end' => $time->getAttribute('end')
+//            ];
+//        }));
     }
 }

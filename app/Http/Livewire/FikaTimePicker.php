@@ -6,14 +6,16 @@ use Livewire\Component;
 
 class FikaTimePicker extends Component
 {
-    public $times = [];
+    public array $times = [];
 
     public function mount(array $times = []) {
+        $times = old('times', $times);
+
         if (empty($times)) {
             $times = [now('Europe/Stockholm')->format('H:i')];
         }
 
-        $this->times = old('times', $times);
+        $this->times = $times;
     }
 
     public function render()
@@ -41,7 +43,7 @@ class FikaTimePicker extends Component
             return;
         }
 
-        $this->times[] = now()->format('H:i');
+        $this->times[] = now('Europe/Stockholm')->format('H:i');
     }
 
     public function canAddMoreTimes(): bool
