@@ -33,7 +33,7 @@
 
             <div class="mt-6">
                 <label for="title">
-                    <p class="text-gray-500 m-3">What is the title?</p>
+                    <p class="text-gray-700 m-3">What is the title?</p>
                     <input placeholder="Is it fika? ☕" value="{{ old('title', 'Is it fika? ☕') }}" class="form-input placeholder-gray-400 text-gray-700 text-3xl w-full bg-gray-100 shadow-inner transition-all duration-150 focus:outline-none focus:shadow-outline" id="title" name="title" />
                     @error('title')
                     <div class="mt-1">
