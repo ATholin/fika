@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Time extends Model
 {
-    protected $fillable = ['start', 'end'];
+    protected array $fillable = ['start', 'end'];
 
     public function fika()
     {
