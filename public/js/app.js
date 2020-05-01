@@ -1943,6 +1943,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     timer: function timer() {
+      var _this = this;
+
       var now = moment_timezone__WEBPACK_IMPORTED_MODULE_0___default()();
       this.isFika = false;
       this.isSoonFika = false;
@@ -1965,33 +1967,33 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (beforeTimes.length) {
-        var diff = moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.duration(time.start.diff(now));
-        this.isSoonFika = true;
+        beforeTimes.forEach(function (time) {
+          var diff = moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.duration(time.start.diff(now));
+          _this.isSoonFika = true;
 
-        if (diff.minutes()) {
-          this.timeString = "No, but in ".concat(diff.minutes(), " minutes and ").concat(diff.seconds(), " seconds");
-        } else {
-          this.timeString = "No, but in ".concat(diff.seconds(), " seconds");
-        }
-
-        return;
+          if (diff.minutes()) {
+            _this.timeString = "No, but in ".concat(diff.minutes(), " minutes and ").concat(diff.seconds(), " seconds");
+          } else {
+            _this.timeString = "No, but in ".concat(diff.seconds(), " seconds");
+          }
+        });
       }
 
       requestAnimationFrame(this.timer);
     },
     getTimes: function getTimes() {
-      var _this = this;
+      var _this2 = this;
 
       window.axios.get(this.slug + '/times').then(function (res) {
         return res.data;
       }).then(function (data) {
         data.forEach(function (time) {
-          _this.times.push({
+          _this2.times.push({
             start: moment_timezone__WEBPACK_IMPORTED_MODULE_0___default.a.tz(time.start, ['h:m a', 'H:m'], 'Europe/Stockholm'),
             end: moment_timezone__WEBPACK_IMPORTED_MODULE_0___default()(time.end, ['h:m a', 'H:m'], 'Europe/Stockholm')
           });
         });
-        requestAnimationFrame(_this.timer);
+        requestAnimationFrame(_this2.timer);
       });
     }
   }
@@ -4833,7 +4835,7 @@ __webpack_require__.r(__webpack_exports__);
     for (var i = 0, len = elements.length; i < len; i++) {
       var _ret = _loop(i);
 
-      if (_ret === "continue") continue;
+      if (_ret === "continue")
     }
 
     return createdDocument.body.innerHTML;
@@ -9565,7 +9567,7 @@ function nodeName( elem, name ) {
 
   return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-};
+}
 var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
@@ -68319,7 +68321,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-  
+
 )
 
 /* hot reload */
@@ -68339,7 +68341,7 @@ component.options.__file = "resources/js/components/Timer.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Timer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Timer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Timer.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Timer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Timer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 

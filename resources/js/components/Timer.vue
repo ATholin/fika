@@ -57,14 +57,15 @@
                 }
 
                 if (beforeTimes.length) {
-                    const diff = moment.duration(time.start.diff(now));
-                    this.isSoonFika = true
-                    if (diff.minutes()) {
-                        this.timeString = `No, but in ${diff.minutes()} minutes and ${diff.seconds()} seconds`;
-                    } else {
-                        this.timeString = `No, but in ${diff.seconds()} seconds`;
-                    }
-                    return;
+                    beforeTimes.forEach(time => {
+                        const diff = moment.duration(time.start.diff(now));
+                        this.isSoonFika = true
+                        if (diff.minutes()) {
+                            this.timeString = `No, but in ${diff.minutes()} minutes and ${diff.seconds()} seconds`;
+                        } else {
+                            this.timeString = `No, but in ${diff.seconds()} seconds`;
+                        }
+                    })
                 }
 
                 requestAnimationFrame(this.timer)
