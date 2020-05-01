@@ -7,7 +7,17 @@
         @yield('head')
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <livewire:styles>
+        <livewire:styles />
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90460921-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-90460921-2');
+        </script>
     </head>
     <body class="h-screen">
         <div class="h-full flex flex-col" id="app">
