@@ -18,8 +18,8 @@
             <div class="mt-4">
                 <label for="slug">
                     <div>
-                        <span class="text-gray-500 text-sm mr-1">/</span>
-                        <input placeholder="/attractive-gamer" value="{{ old('slug', Illuminate\Support\Str::snake(Badcow\PhraseGenerator\PhraseGenerator::generate(), '-')) }}" class="text-sm placeholder-gray-400 text-gray-700 focus:outline-none" id="slug" name="slug" />
+                        <span class="text-gray-900 text-sm mr-1">/</span>
+                        <input placeholder="attractive-gamer" value="{{ old('slug', Illuminate\Support\Str::snake(Badcow\PhraseGenerator\PhraseGenerator::generate(), '-')) }}" class="text-sm placeholder-gray-400 text-gray-900 focus:outline-none" id="slug" name="slug" />
                     </div>
                     @error('slug')
                     <div class="mt-1 ml-3">

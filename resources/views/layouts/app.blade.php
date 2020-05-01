@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>{{ config('app.name') }} - @yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,9 @@
     </head>
     <body class="h-screen">
         <div class="h-full flex flex-col" id="app">
-            <div class="flex-grow">
+            <main class="flex-grow">
                 @yield('content')
-            </div>
+            </main>
             @include('layouts.footer')
         </div>
 
