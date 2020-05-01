@@ -18,3 +18,6 @@ Route::get('/', [FikaController::class, 'index'])->name('fika.create');
 Route::post('/', [FikaController::class, 'store'])->name('fika.store');
 Route::get('/{fika:slug}', [FikaController::class, 'show'])->name('fika.show');
 Route::get('/{fika:slug}/times', [FikaController::class, 'times'])->name('fika.times');
+Route::get('/{fika:slug}/edit', [FikaController::class, 'edit'])->name('fika.edit');
+Route::post('/{fika:slug}/edit', [FikaController::class, 'auth'])->name('fika.edit.auth');
+Route::patch('/{fika:slug}', [FikaController::class, 'update'])->name('fika.update');

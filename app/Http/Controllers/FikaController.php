@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Fika;
 use App\Http\Requests\CreateFikaRequest;
+use App\Http\Requests\UpdateFikaRequest;
 use App\Time;
 use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
 
 class FikaController extends Controller
@@ -45,8 +49,12 @@ class FikaController extends Controller
 
         $fika = new Fika([
             'title' => $validated['title'],
-            'slug' => $validated['slug']
+            'slug' => $validated['slug'],
         ]);
+
+        if (!empty($validated['password'])) {
+            $fika->password = Hash::make($validated['password']);
+        }
 
         $fika->save();
 
@@ -54,9 +62,7 @@ class FikaController extends Controller
             $time = new Time;
 
             $time->start = $t['start'];
-
-            $end = $t['end'];
-            $time->end = Carbon::parse("$end", 'Europe/Stockholm')->addMinutes(30)->format('H:i');
+            $time->end = $t['end'];
 
             $time->fika()->associate($fika);
             $time->save();
@@ -81,21 +87,78 @@ class FikaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @return void
+     * @param Request $request
+     * @param Fika $fika
+     * @return RedirectResponse|View
      */
-    public function edit()
+    public function auth(Request $request, Fika $fika)
     {
-        return;
+        if (empty($fika->password)) {
+            return view('fika.show', [
+                'fika' => $fika,
+            ]);
+        }
+
+        $validated = $request->validate([
+            'password' => function ($attribute, $value, $fail) use ($fika) {
+                if (! Hash::check($value, $fika->password)) {
+                    $fail('Password is incorrect.');
+                }
+            },
+        ]);
+
+        session([
+            'fikas' => [...session('fikas', []), $fika->slug]
+        ]);
+
+        return redirect()->to(route('fika.edit', $fika));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param Fika $fika
+     * @return Application|Factory|View|RedirectResponse
+     */
+    public function edit(Fika $fika)
+    {
+        if (empty($fika->password)) {
+            return back();
+        }
+
+        $pages = session('fikas', []);
+
+        if (! in_array($fika->slug, $pages)) {
+            return view('fika.edit-auth', [
+                'fika' => $fika
+            ]);
+        }
+
+        return view('fika.edit', [
+            'fika' => $fika
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @return void
+     * @param UpdateFikaRequest $request
+     * @param Fika $fika
+     * @return Application|Factory|View
      */
-    public function update()
+    public function update(UpdateFikaRequest $request, Fika $fika)
     {
-        return;
+        $validated = $request->validated();
+
+        if ($request->has('password')) {
+            $validated['password'] = Hash::make($validated['password']);
+        }
+
+        $fika->update($validated);
+
+        return view('fika.show', [
+            'fika' => $fika
+        ]);
     }
 
     /**
