@@ -11,7 +11,9 @@
 @section('content')
     <div class="w-1/2 max-w-5xl mx-auto flex flex-col justify-center items-center h-full">
         <form class="w-full" action="{{ route('fika.store') }}" method="post">
-            @csrf
+            <label>
+                @csrf
+            </label>
 
             <div class="mt-4">
                 <label for="slug">
