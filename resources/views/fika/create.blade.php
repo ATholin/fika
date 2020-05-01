@@ -4,6 +4,10 @@
     Home
 @endsection
 
+@section('head')
+    @include('meta::manager')
+@endsection
+
 @section('content')
     <div class="w-1/2 max-w-5xl mx-auto flex flex-col justify-center items-center h-full">
         <form class="w-full" action="{{ route('fika.store') }}" method="post">

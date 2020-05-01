@@ -4,6 +4,12 @@
     {{ $fika->title }}
 @endsection
 
+@section('head')
+    @include('meta::manager', [
+        'title' => "Fika - $fika->title"
+    ])
+@endsection
+
 @section('content')
     <div class="absolute right-0 top-0 hidden xl:block md:m-8 text-right text-gray-500 hover:text-gray-600">
         <h3 class="font-medium">Fika times</h3>
