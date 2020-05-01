@@ -17,8 +17,8 @@
                 <label>
                     <input type="time" wire:model="times.{{$id}}.end" class="form-input text-lg bg-gray-100" name="times[{{ $id }}][end]" id="times[{{ $id }}][end]" />
                 </label>
-                <label for="remove.{{$id}}">
-                    <button aria-label="Remove" wire:click.prevent="removeTime({{ $id }})" id="remove.{{$id}}" class="p-4">
+                <label>
+                    <button aria-label="Remove" wire:click.prevent="removeTime({{ $id }})" class="p-4">
                         <i class="fa fa-times text-red-500 hover:text-red-600"></i>
                     </button>
                 </label>
