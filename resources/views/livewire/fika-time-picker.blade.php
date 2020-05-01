@@ -42,8 +42,8 @@
 
     <div class="mt-2">
         @if ($this->canAddMoreTimes())
-            <label for="addTime">
-                <button wire:click.prevent="addTime" class="text-sm text-gray-700 hover:text-gray-800 underline" id="addTime">
+            <label>
+                <button wire:click.prevent="addTime" class="text-sm text-gray-700 hover:text-gray-800 underline">
                     Add time
                 </button>
             </label>

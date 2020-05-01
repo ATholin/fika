@@ -33,6 +33,8 @@ class FikaTimePicker extends Component
             return;
         }
 
+        unset($this->times[$i]['start']);
+        unset($this->times[$i]['end']);
         unset($this->times[$i]);
 
         $this->times = array_values($this->times);
