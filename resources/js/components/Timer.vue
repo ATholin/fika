@@ -65,7 +65,7 @@
                         } else {
                             this.timeString = `No, but in ${diff.seconds()} seconds`;
                         }
-                    })
+                    });
                 }
 
                 requestAnimationFrame(this.timer)
