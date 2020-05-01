@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>{{ config('app.name') }} - @yield('title')</title>
@@ -8,7 +9,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <livewire:styles>
     </head>
-    <body>
+    <body class="h-screen">
         <div class="h-full flex flex-col" id="app">
             <div class="flex-grow">
                 @yield('content')

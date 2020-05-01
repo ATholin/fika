@@ -17,9 +17,11 @@
                 <label for="times[{{ $id }}][end]">
                     <input type="time" wire:model="times.{{$id}}.end" class="form-input text-lg bg-gray-100" name="times[{{ $id }}][end]" id="times[{{ $id }}][end]" />
                 </label>
-                <button wire:click.prevent="removeTime({{ $id }})" class="p-4">
-                    <i class="fa fa-times text-red-500 hover:text-red-600"></i>
-                </button>
+                <label for="remove.{{$id}}">
+                    <button aria-label="Remove" wire:click.prevent="removeTime({{ $id }})" id="remove.{{$id}}" class="p-4">
+                        <i class="fa fa-times text-red-500 hover:text-red-600"></i>
+                    </button>
+                </label>
             </div>
             @error("times.{$id}.start")
                 <div class="mt-1">
@@ -40,9 +42,11 @@
 
     <div class="mt-2">
         @if ($this->canAddMoreTimes())
-            <button wire:click.prevent="addTime" class="text-sm text-gray-600 hover:text-gray-800 underline">
-                Add time
-            </button>
+            <label for="addTime">
+                <button wire:click.prevent="addTime" class="text-sm text-gray-600 hover:text-gray-800 underline" id="addTime">
+                    Add time
+                </button>
+            </label>
         @endif
     </div>
 </div>

@@ -59,7 +59,9 @@
 
 
             <div class="mt-8">
-                <button class="w-full py-3 bg-gray-100 shadow rounded-lg font-bold text-gray-600 text-3xl transition-all hover:shadow-none active:bg-gray-100 active:shadow-inner duration-200" type="submit" value="Create fikaklocka">Create fikaklocka</button>
+                <label for="submit">
+                    <button class="w-full py-3 bg-gray-100 shadow rounded-lg font-bold text-gray-600 text-3xl transition-all hover:shadow-none active:bg-gray-100 active:shadow-inner duration-200" type="submit" id="submit" value="Create fikaklocka">Create fikaklocka</button>
+                </label>
             </div>
         </form>
     </div>
