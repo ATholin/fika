@@ -17,8 +17,8 @@
                 <label for="times[{{ $id }}][end]">
                     <input type="time" wire:model="times.{{$id}}.end" class="form-input text-lg bg-gray-100" name="times[{{ $id }}][end]" id="times[{{ $id }}][end]" />
                 </label>
-                <button wire:click.prevent="removeTime({{ $id }})">
-                    <i class="ml-2 fa fa-times text-red-500 hover:text-red-600"></i>
+                <button wire:click.prevent="removeTime({{ $id }})" class="p-4">
+                    <i class="fa fa-times text-red-500 hover:text-red-600"></i>
                 </button>
             </div>
             @error("times.{$id}.start")
