@@ -129,9 +129,7 @@ class FikaController extends Controller
         $pages = session('fikas', []);
 
         if (! in_array($fika->slug, $pages)) {
-            return view('fika.edit-auth', [
-                'fika' => $fika
-            ]);
+            return redirect()->to(route('fika.edit.auth', $fika));
         }
 
         return view('fika.edit', [
@@ -144,10 +142,16 @@ class FikaController extends Controller
      *
      * @param UpdateFikaRequest $request
      * @param Fika $fika
-     * @return Application|Factory|View
+     * @return RedirectResponse
      */
     public function update(UpdateFikaRequest $request, Fika $fika)
     {
+        $pages = session('fikas', []);
+
+        if (! in_array($fika->slug, $pages)) {
+            return redirect()->to(route('fika.edit.auth', $fika));
+        }
+
         $validated = $request->validated();
 
         if ($request->has('password')) {
@@ -156,9 +160,7 @@ class FikaController extends Controller
 
         $fika->update($validated);
 
-        return view('fika.show', [
-            'fika' => $fika
-        ]);
+        return redirect()->to(route('fika.show', $fika));
     }
 
     /**
