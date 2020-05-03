@@ -16,8 +16,6 @@ jobs:
     - uses: nanasess/setup-php@master
       with:
         php-version: '7.4'
-    - name: Setup PHP 7.4
-      run: php my_script.php
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
