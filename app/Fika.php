@@ -6,9 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fika extends Model
 {
-    protected array $fillable = ['title', 'slug', 'password'];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected array $fillable = [
+        'title', 'slug', 'password',
+    ];
 
-    protected array $hidden = ['password'];
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected array $hidden = [
+        'password'
+    ];
 
     public function times()
     {
