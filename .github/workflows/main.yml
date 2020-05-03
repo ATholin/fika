@@ -15,8 +15,8 @@ jobs:
     - uses: actions/checkout@v2
     - uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.3'
-        tools: phpunit, pecl
+        php-version: '7.4'
+        tools: phpunit
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
@@ -33,4 +33,4 @@ jobs:
       env:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
-      run: vendor/bin/phpunit
+      run: php artisan test
