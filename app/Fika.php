@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fika extends Model
 {
-    protected array $fillable = ['title', 'slug', 'password'];
+    protected $fillable = ['title', 'slug', 'password'];
 
-    protected array $hidden = ['password'];
+    protected $hidden = ['password'];
 
     public function times()
     {
