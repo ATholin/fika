@@ -34,7 +34,7 @@ class UpdateFikaRequest extends FormRequest
             'times' => 'filled|array|between:1,5',
             'times.*.start' => 'filled|string|regex:/^\d{2}:\d{2}$/',
             'times.*.end' => 'filled|string|regex:/^\d{2}:\d{2}$/',
-            'password' => 'sometimes|string|min:4'
+            'password' => 'sometimes|string|between:4,16'
         ];
     }
 }

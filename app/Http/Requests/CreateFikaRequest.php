@@ -19,7 +19,7 @@ class CreateFikaRequest extends FormRequest
             'times' => 'required|array|between:1,5',
             'times.*.start' => 'required|string|regex:/^\d{2}:\d{2}$/',
             'times.*.end' => 'required|string|regex:/^\d{2}:\d{2}$/',
-            'password' => 'nullable|string|min:4'
+            'password' => 'nullable|string|between:4,16'
         ];
     }
 }

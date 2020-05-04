@@ -30,7 +30,7 @@
                             <label for="slug">
                                 <div>
                                     <span class="text-gray-900 text-sm mr-1">/</span>
-                                    <input placeholder="attractive-gamer" value="{{ old('slug', $fika->slug) }}" class="text-sm placeholder-gray-400 text-gray-900 focus:outline-none" id="slug" name="slug" />
+                                    <input maxlength="32" placeholder="attractive-gamer" value="{{ old('slug', $fika->slug) }}" class="text-sm placeholder-gray-400 text-gray-900 focus:outline-none" id="slug" name="slug" />
                                 </div>
                                 @error('slug')
                                 <div class="mt-1 ml-3">
@@ -45,7 +45,7 @@
                         <div class="mt-6">
                             <label for="title">
                                 <p class="text-gray-700 m-3">What is the title?</p>
-                                <input placeholder="Is it fika? ☕" value="{{ old('title', $fika->title) }}" class="form-input placeholder-gray-400 text-gray-700 text-3xl w-full bg-gray-100 shadow-inner transition-all duration-150 focus:outline-none focus:shadow-outline" id="title" name="title" />
+                                <input maxlength="64" placeholder="Is it fika? ☕" value="{{ old('title', $fika->title) }}" class="form-input placeholder-gray-400 text-gray-700 text-3xl w-full bg-gray-100 shadow-inner transition-all duration-150 focus:outline-none focus:shadow-outline" id="title" name="title" />
                                 @error('title')
                                 <div class="mt-1">
                                     <strong class="text-xs text-red-300">
@@ -59,25 +59,12 @@
                         <div class="mt-6">
                             <label for="times">
                                 <span class="text-gray-700">at</span>
-                                <livewire:fika-time-picker />
+                                <livewire:fika-time-picker :times="$times" />
                             </label>
                         </div>
 
                         <div class="mt-8">
-                            <label for="password">
-                    <span class="mb-3 flex flex-col">
-                        <span class="text-gray-700">Password</span>
-                        <span class="text-xs text-gray-600">This will be used to edit the page later. Do not re-use this password anywhere.</span>
-                    </span>
-                                <input class="form-input bg-gray-100 shadow-inner transition-all duration-150 focus:outline-none focus:shadow-outline" type="text" name="password" id="password" placeholder="69696969" />
-                                @error('password')
-                                <div class="mt-1">
-                                    <strong class="text-xs text-red-300">
-                                        {{ $message }}
-                                    </strong>
-                                </div>
-                                @enderror
-                            </label>
+                            <livewire:form-accordion />
                         </div>
 
 
