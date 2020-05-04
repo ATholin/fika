@@ -129,7 +129,9 @@ class FikaController extends Controller
         $pages = session('fikas', []);
 
         if (! in_array($fika->slug, $pages)) {
-            return redirect()->to(route('fika.edit.auth', $fika));
+            return view('fika.edit-auth', [
+                'fika' => $fika
+            ]);
         }
 
         return view('fika.edit', [
