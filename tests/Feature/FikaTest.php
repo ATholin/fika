@@ -72,8 +72,7 @@ class FikaTest extends TestCase
 
         $response = $this->get(route('fika.edit', $fika));
 
-        $response->assertStatus(302);
-        $response->assertRedirect(route('fika.edit.auth', $fika));
+        $response->assertOk();
     }
 
     /**
