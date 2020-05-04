@@ -134,8 +134,11 @@ class FikaController extends Controller
             ]);
         }
 
+        $times = $fika->times()->get(['start', 'end'])->toArray();
+
         return view('fika.edit', [
-            'fika' => $fika
+            'fika' => $fika,
+            'times' => $times,
         ]);
     }
 
