@@ -47,16 +47,14 @@
 
                 if (!beforeTimes.length && !duringTimes.length) {
                     this.timeString = 'Not yet.';
-                    return;
                 }
 
-                if (duringTimes.length) {
+                else if (duringTimes.length) {
                     this.timeString = 'YES';
                     this.isFika = true;
-                    return;
                 }
 
-                if (beforeTimes.length) {
+                else if (beforeTimes.length) {
                     beforeTimes.forEach(time => {
                         const diff = moment.duration(time.start.diff(now));
                         this.isSoonFika = true
