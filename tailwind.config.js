@@ -1,6 +1,11 @@
 module.exports = {
     theme: {
-    extend: {},
+        extend: {
+            colors: {
+                'brand-500': '#f50057',
+                'brand-700': '#c60045',
+            }
+        },
     },
     purge: [
         './resources/**/*.blade.php',
