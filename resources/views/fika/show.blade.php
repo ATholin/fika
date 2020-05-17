@@ -58,8 +58,30 @@
 @endsection
 
 @section('footer')
-    <a href="{{ route('fika.create') }}" class="flex px-2 py-1 items-center text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-700">
-        Create Fikaklocka
-        <i class="ml-2 fa fa-plus"></i>
-    </a>
+    <div class="flex">
+        <modal>
+            <div>
+                <p class="mb-2 font-medium text-gray-900">Fika URL</p>
+                <label>
+                    <input class="form-input" type="text" readonly value="{{ route('fika.show', $fika) }}" />
+                </label>
+            </div>
+
+            <div class="mt-8">
+                <p class="mb-2 font-medium text-gray-900">Links</p>
+                <div class="flex">
+                    <a class="mr-2" href="https://www.facebook.com/sharer/sharer.php?u={{ route('fika.show', $fika) }}" target="_blank">
+                        <i class="fa fa-facebook-square text-3xl" style="color: #4267b2"></i>
+                    </a>
+                    <a href="http://twitter.com/share?text={{ $fika->title }}&url={{ route('fika.show', $fika) }}" target="_blank">
+                        <i class="fa fa-twitter-square text-3xl" style="color: #1c9cea"></i>
+                    </a>
+                </div>
+            </div>
+        </modal>
+        <a href="{{ route('fika.create') }}" class="ml-2 flex px-2 py-1 items-center text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-700">
+            <i class="mr-2 fa fa-plus"></i>
+            Create Fikaklocka
+        </a>
+    </div>
 @endsection
