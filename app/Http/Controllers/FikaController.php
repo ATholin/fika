@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Fika;
 use App\Http\Requests\CreateFikaRequest;
 use App\Http\Requests\UpdateFikaRequest;
+use App\Recipe;
 use App\Time;
 use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
@@ -80,7 +81,8 @@ class FikaController extends Controller
     public function show(Fika $fika)
     {
         return view('fika.show', [
-            'fika' => $fika->load('times')
+            'fika' => $fika->load('times'),
+            'recipes' => Recipe::all(),
         ]);
     }
 

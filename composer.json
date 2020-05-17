@@ -11,6 +11,7 @@
         "php": "^7.4",
         "ext-json": "*",
         "badcow/phrase-generator": "^1.0",
+        "calebporzio/sushi": "^2.0",
         "davmixcool/laravel-meta-manager": "^1.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
