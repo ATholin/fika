@@ -19,14 +19,14 @@
                     <sidebar>
                         <slot>
                             @foreach($recipes as $recipe)
-                                <div class="px-6 py-2">
+                                <div class="mb-4">
                                     <x-recipe :recipe="$recipe"></x-recipe>
                                 </div>
                             @endforeach
                         </slot>
 
                         <template v-slot:footer>
-                            <p>Want your recipe here? <a class="text-red-400">Send an email!</a></p>
+                            <p class="text-sm py-3">Want your recipe here? <a href="mailto:{{ config('app.email') }}" class="text-red-400">Send an email!</a></p>
                         </template>
                     </sidebar>
                 </div>
@@ -55,4 +55,11 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer')
+    <a href="{{ route('fika.create') }}" class="flex px-2 py-1 items-center text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-700">
+        Create Fikaklocka
+        <i class="ml-2 fa fa-plus"></i>
+    </a>
 @endsection

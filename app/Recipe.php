@@ -12,31 +12,17 @@ class Recipe extends Model
     protected array $rows = [
         [
             'name' => 'Kanelbulle',
-            'description' => 'Baka utsökta och goda kanelbullar med detta perfekta kanelbullerecept. Kanelbullarna blir stora, mjuka och får en god smak av sin fyllning som består av kanel, smör och socker. ',
+            'description' => 'Inget går upp emot nybakade kanelbullar och ett glas kall mjölk. Klassiska kanelbullar är lika gott till kall mjölk på sommaren som till varm choklad på vintern.',
             'source' => 'Kanelbulle Inc.',
-            'source_url' => 'https://fika.atholin.se/',
-            'image_url' => 'https://images.unsplash.com/photo-1543254031-c9fc737d532f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80'
+            'source_url' => 'https://www.arla.se/recept/kanelbullar/',
+            'image_url' => 'https://cdn-rdb.arla.com/Files/arla-se/1241947592/9d614be5-0a2f-421f-af5e-61bb3e7f4962.jpg?mode=crop&w=1269&h=545&ak=f525e733&hm=a9bc2d42'
         ],
         [
-            'name' => 'Kanelbulle',
-            'description' => 'Baka utsökta och goda kanelbullar med detta perfekta kanelbullerecept. Kanelbullarna blir stora, mjuka och får en god smak av sin fyllning som består av kanel, smör och socker. ',
-            'source' => 'Kanelbulle Inc.',
-            'source_url' => 'https://fika.atholin.se/',
-            'image_url' => 'https://images.unsplash.com/photo-1543254031-c9fc737d532f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80'
-        ],
-        [
-            'name' => 'Kanelbulle',
-            'description' => 'Baka utsökta och goda kanelbullar med detta perfekta kanelbullerecept. Kanelbullarna blir stora, mjuka och får en god smak av sin fyllning som består av kanel, smör och socker. ',
-            'source' => 'Kanelbulle Inc.',
-            'source_url' => 'https://fika.atholin.se/',
-            'image_url' => 'https://images.unsplash.com/photo-1543254031-c9fc737d532f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80'
-        ],
-        [
-            'name' => 'Kanelbulle',
-            'description' => 'Baka utsökta och goda kanelbullar med detta perfekta kanelbullerecept. Kanelbullarna blir stora, mjuka och får en god smak av sin fyllning som består av kanel, smör och socker. ',
-            'source' => 'Kanelbulle Inc.',
-            'source_url' => 'https://fika.atholin.se/',
-            'image_url' => 'https://images.unsplash.com/photo-1543254031-c9fc737d532f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80'
+            'name' => 'Kladdig kladdkaka',
+            'description' => 'En extra kladdig kladdkaka blir resultatet av den här smeten och chansen är stor att du kommer baka världens godaste kladdkaka. Smaksätt den med det du gillar mest, kanske polkagris eller saltlakrits?',
+            'source' => 'Arla',
+            'source_url' => 'https://www.arla.se/recept/kladdig-kladdkaka/',
+            'image_url' => 'https://cdn-rdb.arla.com/Files/arla-se/3619297742/3fb70bc5-82ef-4e14-9da0-a4f0d8baf8bc.jpg?mode=crop&w=1269&h=545&ak=f525e733&hm=a9bc2d42'
         ],
     ];
 }
