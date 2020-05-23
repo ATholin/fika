@@ -1,24 +1,10 @@
 <?php
 
-namespace Tests\Unit;
+use App\Time;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+it('has correct types', function () {
+    $time = factory(Time::class)->make();
 
-class TimeTest extends TestCase
-{
-    use RefreshDatabase;
-
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function testCorrectTypes()
-    {
-        $time = factory(\App\Time::class)->make();
-
-        $this->assertIsString($time->start);
-        $this->assertIsString($time->end);
-    }
-}
+    $this->assertIsString($time->start);
+    $this->assertIsString($time->end);
+});
