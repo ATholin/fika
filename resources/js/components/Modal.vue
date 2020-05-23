@@ -24,12 +24,12 @@
 <!--    </div>-->
     <div>
 
-        <button @click="toggle" class="flex px-2 py-1 items-center text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-700">
+        <button @click="show" class="flex px-2 py-1 items-center text-sm font-medium transition-colors duration-200 text-gray-500 hover:text-gray-700">
             <i class="mr-2 fa fa-share"></i>
             Share this
         </button>
 
-        <div v-if="show" class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
+        <div v-if="open" class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
             <transition
                 enter-active-class="transition-all duration-75"
                 leave-active-class="transition-all duration-75"
@@ -73,7 +73,7 @@
 
                         <!--Footer-->
                         <div class="flex justify-end pt-2">
-        <!--                    <button class="px-4 bg-transparent px-3 py-2 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action</button>-->
+                            <!-- <button class="px-4 bg-transparent px-3 py-2 rounded-lg text-indigo-500 hover:bg-gray-100 hover:text-indigo-400 mr-2">Action</button> -->
                             <button @click="close" class="modal-close px-6 bg-indigo-500 py-2 rounded-lg text-white hover:bg-indigo-400">Close</button>
                         </div>
 
@@ -89,7 +89,7 @@
     export default {
         data() {
             return {
-                show: false
+                open: false
             }
         },
         mounted: function () {
@@ -100,18 +100,18 @@
         },
         methods: {
             keyDownListener(e) {
-                if (this.show && e.key === 'Escape') {
+                if (this.open && e.key === 'Escape') {
                     this.close()
                 }
             },
             close() {
-                this.show = false
+                this.open = false
             },
             show() {
-                this.show = true
+                this.open = true
             },
             toggle() {
-                this.show = !this.show
+                this.open = !this.show
             }
         }
     }
