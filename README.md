@@ -10,7 +10,7 @@ Small service for fika timer and countdown. Create and manage break times with a
 
 ## Getting started
 
-### Launch the starter project
+### Launch the project
 
 *(Assuming you've [installed Laravel](https://laravel.com/docs/installation))*
 
