@@ -5,189 +5,112 @@ namespace Tests\Feature;
 use App\Fika;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
-use Tests\TestCase;
 
-class FikaTest extends TestCase
-{
-    use RefreshDatabase;
+test('can see create page')
+    ->get('/')
+    ->assertOk()
+    ->assertViewIs('fika.create')
+    ->assertSee('Create');
 
-    /**
-     * Assert that the create (home) view can be loaded.
-     *
-     * @return void
-     */
-    public function test_can_see_create_page()
-    {
-        $response = $this->get(route('fika.create'));
 
-        $response->assertOk();
-        $response->assertViewIs('fika.create');
-        $response->assertSee('Create');
-    }
+test('can see edit page', function () {
+    $fika = factory(Fika::class)->create();
 
-    /**
-     * Assert that the fika page can be loaded.
-     *
-     * @return void
-     */
-    public function test_can_see_show_page()
-    {
-        $fika = factory(Fika::class)->create();
+    session([
+        'fikas' => [$fika->getAttribute('slug')]
+    ]);
 
-        $response = $this->get(route('fika.show', $fika));
+    $response = $this->get(route('fika.edit', $fika));
 
-        $response->assertOk();
-        $response->assertViewIs('fika.show');
-        $response->assertSee($fika->getAttribute('title'));
-    }
+    $response->assertOk();
+    $response->assertViewIs('fika.edit');
+    $response->assertSee('Edit fika');
+});
 
-    /**
-     * Assert that the edit page can be loaded.
-     *
-     * @return void
-     */
-    public function test_can_see_edit_page()
-    {
-        $fika = factory(Fika::class)->create();
+test('edit requires auth', function() {
+    $fika = factory(Fika::class)->create();
 
-        session([
-            'fikas' => [$fika->getAttribute('slug')]
-        ]);
+    $response = $this->get(route('fika.edit', $fika));
 
-        $response = $this->get(route('fika.edit', $fika));
+    $response->assertOk();
+});
 
-        $response->assertOk();
-        $response->assertViewIs('fika.edit');
-        $response->assertSee('Edit fika');
-    }
+test('edit auth correct password', function () {
+    $fika = factory(Fika::class)->create([
+        'password' => Hash::make('test'),
+    ]);
 
-    /**
-     * Assert that the edit page requires password.
-     *
-     * @return void
-     */
-    public function test_edit_requires_auth()
-    {
-        $fika = factory(Fika::class)->create();
+    $response = $this->post(route('fika.edit.auth', $fika), [
+        'password' => 'test'
+    ]);
 
-        $response = $this->get(route('fika.edit', $fika));
+    $response->assertStatus(302);
+    $response->assertRedirect(route('fika.edit', $fika));
+});
 
-        $response->assertOk();
-    }
+test('edit auth wrong password', function () {
+    $fika = factory(Fika::class)->create([
+        'password' => Hash::make('test'),
+    ]);
 
-    /**
-     * Assert updating.
-     *
-     * @return void
-     */
+    $response = $this->post(route('fika.edit.auth', $fika), [
+        'password' => 'test1'
+    ]);
 
-    /**
-     * Assert that the edit page requires password.
-     *
-     * @return void
-     */
-    public function test_edit_auth_correct_password()
-    {
-        $fika = factory(Fika::class)->create([
-            'password' => Hash::make('test'),
-        ]);
+    $response->assertStatus(302);
+    $response->assertRedirect(route('fika.create'));
+});
 
-        $response = $this->post(route('fika.edit.auth', $fika), [
-            'password' => 'test'
-        ]);
+test('can update fika', function () {
+    $fika = factory(Fika::class)->create();
 
-        $response->assertStatus(302);
-        $response->assertRedirect(route('fika.edit', $fika));
-    }
+    session([
+        'fikas' => [$fika->getAttribute('slug')]
+    ]);
 
-    /**
-     * Assert that the edit page requires password.
-     *
-     * @return void
-     */
-    public function test_edit_auth_wrong_password()
-    {
-        $fika = factory(Fika::class)->create([
-            'password' => Hash::make('test'),
-        ]);
+    $response = $this->patch(route('fika.update', $fika), [
+        'title' => 'Updated title',
+        'slug' => $fika->slug,
+        'times' => [
+            [
+                'start' => '22:30',
+                'end' => '23:30',
+            ]
+        ],
+        'password' => ''
+    ]);
 
-        $response = $this->post(route('fika.edit.auth', $fika), [
-            'password' => 'test1'
-        ]);
+    $fika = Fika::first();
 
-        $response->assertStatus(302);
-        $response->assertRedirect(route('fika.create'));
-    }
+    $response->assertStatus(302);
+    $response->assertRedirect(route('fika.show', $fika));
 
-    /**
-     * Assert updating.
-     *
-     * @return void
-     */
+    $this->assertEquals('Updated title', $fika->title);
+});
 
-    public function test_can_update_fika()
-    {
-        $fika = factory(Fika::class)->create();
+test('update requires auth', function () {
+    $fika = factory(Fika::class)->create();
 
-        session([
-            'fikas' => [$fika->getAttribute('slug')]
-        ]);
+    $response = $this->patch(route('fika.update', $fika), [
+        'title' => 'Updated title',
+        'slug' => $fika->slug,
+        'times' => [
+            [
+                'start' => '22:30',
+                'end' => '23:30',
+            ]
+        ],
+        'password' => ''
+    ]);
 
-        $response = $this->patch(route('fika.update', $fika), [
-            'title' => 'Updated title',
-            'slug' => $fika->slug,
-            'times' => [
-                [
-                    'start' => '22:30',
-                    'end' => '23:30',
-                ]
-            ],
-            'password' => ''
-        ]);
+    $fika = Fika::first();
 
-        $fika = Fika::first();
+    $response->assertStatus(302);
+    $response->assertRedirect(route('fika.edit.auth', $fika));
+});
 
-        $response->assertStatus(302);
-        $response->assertRedirect(route('fika.show', $fika));
-
-        $this->assertEquals('Updated title', $fika->title);
-    }
-
-    /**
-     * Assert that updating requires auth.
-     *
-     * @return void
-     */
-    public function test_update_requires_auth()
-    {
-        $fika = factory(Fika::class)->create();
-
-        $response = $this->patch(route('fika.update', $fika), [
-            'title' => 'Updated title',
-            'slug' => $fika->slug,
-            'times' => [
-                [
-                    'start' => '22:30',
-                    'end' => '23:30',
-                ]
-            ],
-            'password' => ''
-        ]);
-
-        $fika = Fika::first();
-
-        $response->assertStatus(302);
-        $response->assertRedirect(route('fika.edit.auth', $fika));
-    }
-
-    /**
-     * Assert can create fika without a password.
-     *
-     * @return void
-     */
-    public function test_can_create_fika_without_password()
-    {
-        $slug = 'test-slug';
+test('can create fika without password', function () {
+    $slug = 'test-slug';
 
         $response = $this->post(route('fika.create'), [
             'title' => 'Fika',
@@ -210,37 +133,30 @@ class FikaTest extends TestCase
         $this->assertNotNull($fika);
 
         $this->assertNull($fika->getAttribute('password'));
-    }
+});
 
-    /**
-     * Assert can create fika with a password.
-     *
-     * @return void
-     */
-    public function test_can_create_fika_with_password()
-    {
-        $slug = 'test-slug';
+test('can create fika with password', function() {
+    $slug = 'test-slug';
 
-        $response = $this->post('/', [
-            'title' => 'Fika',
-            'slug' => $slug,
-            'times' => [
-                [
-                    'start' => '22:30',
-                    'end' => '23:30',
-                ]
-            ],
-            'password' => 'test'
-        ]);
+    $response = $this->post('/', [
+        'title' => 'Fika',
+        'slug' => $slug,
+        'times' => [
+            [
+                'start' => '22:30',
+                'end' => '23:30',
+            ]
+        ],
+        'password' => 'test'
+    ]);
 
-        $response->assertStatus(302);
-        $response->assertRedirect(route('fika.show', $slug));
+    $response->assertStatus(302);
+    $response->assertRedirect(route('fika.show', $slug));
 
-        /** @var Fika $fika */
-        $fika = Fika::whereSlug($slug)->first();
+    /** @var Fika $fika */
+    $fika = Fika::whereSlug($slug)->first();
 
-        $this->assertTrue($fika->exists);
+    $this->assertTrue($fika->exists);
 
-        $this->assertNotNull($fika->getAttribute('password'));
-    }
-}
+    $this->assertNotNull($fika->getAttribute('password'));
+});
