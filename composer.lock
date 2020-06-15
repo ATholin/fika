@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a7cd77f9b49e186382797029e83a5d3",
+    "content-hash": "b6866a006addfd329836231220172cb8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4582,20 +4582,23 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v0.1.5",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "ddc08cf0f9947462ed8bbbe206e72de639e8fcf7"
+                "reference": "a3fd60ce4d892b80504359a3c1b8ff815d5541ee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/ddc08cf0f9947462ed8bbbe206e72de639e8fcf7",
-                "reference": "ddc08cf0f9947462ed8bbbe206e72de639e8fcf7",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/a3fd60ce4d892b80504359a3c1b8ff815d5541ee",
+                "reference": "a3fd60ce4d892b80504359a3c1b8ff815d5541ee",
                 "shasum": ""
             },
             "require": {
-                "nunomaduro/collision": "^5.0",
+                "nunomaduro/collision": "^5.0.0-BETA2",
+                "pestphp/pest-plugin": "^0.2",
+                "pestphp/pest-plugin-coverage": "^0.2",
+                "pestphp/pest-plugin-init": "^0.2",
                 "php": "^7.3",
                 "phpunit/phpunit": "^9.1.4",
                 "sebastian/environment": "^5.1"
@@ -4617,6 +4620,9 @@
             ],
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                },
                 "laravel": {
                     "providers": [
                         "Pest\\Laravel\\PestServiceProvider"
@@ -4651,7 +4657,175 @@
                 "testing",
                 "unit"
             ],
-            "time": "2020-05-24T19:41:35+00:00"
+            "time": "2020-06-14T15:01:15+00:00"
+        },
+        {
+            "name": "pestphp/pest-plugin",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pestphp/pest-plugin.git",
+                "reference": "d94b26546a367720536c56898200fdfa288da264"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin/zipball/d94b26546a367720536c56898200fdfa288da264",
+                "reference": "d94b26546a367720536c56898200fdfa288da264",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1||^2.0",
+                "php": "^7.3"
+            },
+            "conflict": {
+                "pestphp/pest": "<0.2"
+            },
+            "require-dev": {
+                "composer/composer": "^1.10",
+                "pestphp/pest": "^0.2",
+                "pestphp/pest-dev-tools": "dev-master"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                },
+                "class": "Pest\\Plugin\\Manager"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pest\\Plugin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Pest plugin manager",
+            "keywords": [
+                "framework",
+                "manager",
+                "pest",
+                "php",
+                "plugin",
+                "test",
+                "testing",
+                "unit"
+            ],
+            "time": "2020-06-14T14:36:58+00:00"
+        },
+        {
+            "name": "pestphp/pest-plugin-coverage",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pestphp/pest-plugin-coverage.git",
+                "reference": "0849cf8d394124c21f2370f8e37b4bc272ea07c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-coverage/zipball/0849cf8d394124c21f2370f8e37b4bc272ea07c0",
+                "reference": "0849cf8d394124c21f2370f8e37b4bc272ea07c0",
+                "shasum": ""
+            },
+            "require": {
+                "pestphp/pest-plugin": "^0.2",
+                "php": "^7.3"
+            },
+            "conflict": {
+                "pestphp/pest": "<0.2"
+            },
+            "require-dev": {
+                "pestphp/pest": "^0.2",
+                "pestphp/pest-dev-tools": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "pest": {
+                    "plugins": [
+                        "Pest\\PluginCoverage\\Plugin"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pest\\PluginCoverage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Pest Coverage Plugin",
+            "keywords": [
+                "coverage",
+                "framework",
+                "pest",
+                "php",
+                "plugin",
+                "test",
+                "testing",
+                "unit"
+            ],
+            "time": "2020-06-11T20:42:52+00:00"
+        },
+        {
+            "name": "pestphp/pest-plugin-init",
+            "version": "v0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pestphp/pest-plugin-init.git",
+                "reference": "bf02ca59fb7857e760a8dffa3847f564b5b276fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-init/zipball/bf02ca59fb7857e760a8dffa3847f564b5b276fb",
+                "reference": "bf02ca59fb7857e760a8dffa3847f564b5b276fb",
+                "shasum": ""
+            },
+            "require": {
+                "pestphp/pest-plugin": "^0.2",
+                "php": "^7.3"
+            },
+            "conflict": {
+                "pestphp/pest": "<0.2"
+            },
+            "require-dev": {
+                "pestphp/pest": "^0.2",
+                "pestphp/pest-dev-tools": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                },
+                "pest": {
+                    "plugins": [
+                        "Pest\\Init\\Plugin"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pest\\Init\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Pest Init plugin",
+            "keywords": [
+                "framework",
+                "init",
+                "pest",
+                "php",
+                "plugin",
+                "test",
+                "testing",
+                "unit"
+            ],
+            "time": "2020-06-12T00:15:21+00:00"
         },
         {
             "name": "phar-io/manifest",
