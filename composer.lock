@@ -4583,16 +4583,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "a3fd60ce4d892b80504359a3c1b8ff815d5541ee"
+                "reference": "283d8f3e03956cbee210d69edd5ad13690078723"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/a3fd60ce4d892b80504359a3c1b8ff815d5541ee",
-                "reference": "a3fd60ce4d892b80504359a3c1b8ff815d5541ee",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/283d8f3e03956cbee210d69edd5ad13690078723",
+                "reference": "283d8f3e03956cbee210d69edd5ad13690078723",
                 "shasum": ""
             },
             "require": {
@@ -4658,20 +4658,20 @@
                 "testing",
                 "unit"
             ],
-            "time": "2020-06-14T15:01:15+00:00"
+            "time": "2020-06-17T16:57:54+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
-            "version": "v0.2.0",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin.git",
-                "reference": "d94b26546a367720536c56898200fdfa288da264"
+                "reference": "99d21abb7b1a44aa26c2416ca729d2a989ee2850"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin/zipball/d94b26546a367720536c56898200fdfa288da264",
-                "reference": "d94b26546a367720536c56898200fdfa288da264",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin/zipball/99d21abb7b1a44aa26c2416ca729d2a989ee2850",
+                "reference": "99d21abb7b1a44aa26c2416ca729d2a989ee2850",
                 "shasum": ""
             },
             "require": {
@@ -4713,7 +4713,7 @@
                 "testing",
                 "unit"
             ],
-            "time": "2020-06-14T14:36:58+00:00"
+            "time": "2020-06-16T18:07:24+00:00"
         },
         {
             "name": "pestphp/pest-plugin-coverage",
