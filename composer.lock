@@ -5070,16 +5070,16 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v5.0.0-BETA3",
+            "version": "v5.0.0-BETA4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "795a1cfb7c5ef400565d0fd7ed276ef44006c990"
+                "reference": "805929cb4bb6b24ef56a28a4121eb1336803effd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/795a1cfb7c5ef400565d0fd7ed276ef44006c990",
-                "reference": "795a1cfb7c5ef400565d0fd7ed276ef44006c990",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/805929cb4bb6b24ef56a28a4121eb1336803effd",
+                "reference": "805929cb4bb6b24ef56a28a4121eb1336803effd",
                 "shasum": ""
             },
             "require": {
@@ -5151,7 +5151,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2020-06-22T00:50:44+00:00"
+            "time": "2020-06-25T16:51:17+00:00"
         },
         {
             "name": "pestphp/pest",
