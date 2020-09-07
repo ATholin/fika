@@ -26,6 +26,6 @@
         "font-awesome": "^4.7.0",
         "moment-timezone": "^0.5.31",
         "moment": "^2.27.0",
-        "tailwindcss": "^1.7.6"
+        "tailwindcss": "^1.8.4"
     }
 }
