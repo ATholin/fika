@@ -147,21 +147,21 @@
         },
         {
             "name": "calebporzio/sushi",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/calebporzio/sushi.git",
-                "reference": "df69a1af1fbbc0aed96f6563770f8d79fe0eb6a5"
+                "reference": "39a7362537fb18136622ee0f6770b430a0eb10e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/calebporzio/sushi/zipball/df69a1af1fbbc0aed96f6563770f8d79fe0eb6a5",
-                "reference": "df69a1af1fbbc0aed96f6563770f8d79fe0eb6a5",
+                "url": "https://api.github.com/repos/calebporzio/sushi/zipball/39a7362537fb18136622ee0f6770b430a0eb10e4",
+                "reference": "39a7362537fb18136622ee0f6770b430a0eb10e4",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^5.8 || ^6.0 || ^7.0",
-                "illuminate/support": "^5.8 || ^6.0 || ^7.0",
+                "illuminate/database": "^5.8 || ^6.0 || ^7.0 || ^8.0",
+                "illuminate/support": "^5.8 || ^6.0 || ^7.0 || ^8.0",
                 "php": "^7.1.3"
             },
             "require-dev": {
@@ -193,7 +193,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-03-04T02:49:53+00:00"
+            "time": "2020-09-02T02:34:49+00:00"
         },
         {
             "name": "davmixcool/laravel-meta-manager",
