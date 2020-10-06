@@ -21,7 +21,7 @@
     </head>
     <body class="h-screen">
         <div class="h-full flex flex-col" id="app">
-            <main class="flex-grow overflow-y-auto">
+            <main class="px-4 flex-grow overflow-y-auto">
                 @yield('content')
             </main>
             @include('layouts.footer')
