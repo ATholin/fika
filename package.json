@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "font-awesome": "^4.7.0",
-        "moment-timezone": "^0.5.31",
+        "moment-timezone": "^0.5.32",
         "moment": "^2.29.1",
         "tailwindcss": "^1.9.6"
     }
