@@ -19,7 +19,7 @@
             gtag('config', 'UA-90460921-2');
         </script>
     </head>
-    <body class="h-screen">
+    <body class="h-screen bg-white">
         <div class="h-full flex flex-col" id="app">
             <main class="px-4 flex-grow overflow-y-auto">
                 @yield('content')
